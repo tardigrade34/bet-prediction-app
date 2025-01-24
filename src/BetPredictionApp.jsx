@@ -48,7 +48,7 @@ export const getPrediction = async (matchData) => {
     } else if (error.request) {
       throw new Error("Sunucuya ulaşılamıyor");
     } else {
-      throw new Error("İstek oluşturulurken hata oluştu");
+      throw new Error("İstek oluşturulurken hata oluştu!");
     }
   }
 };
