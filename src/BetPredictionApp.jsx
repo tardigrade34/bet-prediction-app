@@ -185,8 +185,6 @@ const BetPredictionApp = () => {
     awayPasses: "",
     homeTackles: "",
     awayTackles: "",
-    homeBlockedShots: "",
-    awayBlockedShots: "",
     homeShotsInsideBox: "",
     awayShotsInsideBox: "",
     homeSquad: "",
@@ -231,7 +229,6 @@ const BetPredictionApp = () => {
         Şutlar (Ev/Dep): ${formData.homeShots}-${formData.awayShots}
         Ceza Sahası İçi Şut (Ev/Dep): ${formData.homeShotsInsideBox}-${formData.awayShotsInsideBox}
         İsabetli Şutlar (Ev/Dep): ${formData.homeOnTarget}-${formData.awayOnTarget}
-        Bloke Edilen Şutlar (Ev/Dep): ${formData.homeBlockedShots}-${formData.awayBlockedShots}
         Paslar (Ev/Dep): ${formData.homePasses}-${formData.awayPasses}
         Müdahaleler (Ev/Dep): ${formData.homeTackles}-${formData.awayTackles}
         Top Hakimiyeti % (Ev/Dep): ${formData.homePossession}-${formData.awayPossession}
@@ -248,6 +245,12 @@ const BetPredictionApp = () => {
 
         Maç Anlatımı:
         ${formData.liveCommentary}
+
+        Takımların Son 5 Maçının Sonucu: ${formData.recentForm}
+        Hava Durumu: ${formData.weather}
+        Hakem: ${formData.referee}
+        Takımların Dizilişi: ${formData.formations}
+        Ligin Puan Tablosu: ${formData.leagueTable}
       `;
 
       const prompt = `Bu maçın ilk yarısı ${formData.firstHalfScore} skoruyla tamamlanmıştır. Verilen istatistikler ilk yarıya aittir. İkinci yarı için aşağıdaki bahis türlerini analiz et ve en mantıklı tahminleri yap:
@@ -373,6 +376,24 @@ ${matchDescription}`;
               label="Deplasman Takım"
               name="awayTeam"
               value={formData.awayTeam}
+              onChange={handleInputChange}
+            />
+            <FormGroup
+              label="Hava Durumu"
+              name="weather"
+              value={formData.weather}
+              onChange={handleInputChange}
+            />
+            <FormGroup
+              label="Hakem"
+              name="referee"
+              value={formData.referee}
+              onChange={handleInputChange}
+            />
+            <FormGroup
+              label="Takimlarin Dizilişi"
+              name="formations"
+              value={formData.formations}
               onChange={handleInputChange}
             />
           </div>
@@ -527,6 +548,48 @@ ${matchDescription}`;
                 value={formData.awayRed}
                 onChange={handleInputChange}
               />
+              <FormGroup
+                label="Büyük Şans (Ev)"
+                name="homeBigChances"
+                type="number"
+                value={formData.homeBigChances}
+                onChange={handleInputChange}
+              />
+              <FormGroup
+                label="Büyük Şans (Dep)"
+                name="awayBigChances"
+                type="number"
+                value={formData.awayBigChances}
+                onChange={handleInputChange}
+              />
+              <FormGroup
+                label="Müdaheleler (Ev)"
+                name="homeTackles"
+                type="number"
+                value={formData.homeTackles}
+                onChange={handleInputChange}
+              />
+              <FormGroup
+                label="Müdaheleler (Dep)"
+                name="awayTackles"
+                type="number"
+                value={formData.awayTackles}
+                onChange={handleInputChange}
+              />
+              <FormGroup
+                label="Fauller (Ev)"
+                name="homeFouls"
+                type="number"
+                value={formData.homeFouls}
+                onChange={handleInputChange}
+              />
+              <FormGroup
+                label="Fauller (Dep)"
+                name="awayFouls"
+                type="number"
+                value={formData.awayFouls}
+                onChange={handleInputChange}
+              />
             </StatisticGroup>
           </div>
 
@@ -555,48 +618,6 @@ ${matchDescription}`;
               rows={3}
               className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Son 5 maçın sonuçlarını buraya giriniz..."
-            />
-          </div>
-
-          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-              Hava Durumu
-            </label>
-            <input
-              type="text"
-              name="weather"
-              value={formData.weather}
-              onChange={handleInputChange}
-              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Hava durumunu buraya giriniz..."
-            />
-          </div>
-
-          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-              Hakem
-            </label>
-            <input
-              type="text"
-              name="referee"
-              value={formData.referee}
-              onChange={handleInputChange}
-              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Hakemi buraya giriniz..."
-            />
-          </div>
-
-          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-              Takımların Dizilişi
-            </label>
-            <textarea
-              name="formations"
-              value={formData.formations}
-              onChange={handleInputChange}
-              rows={3}
-              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Takımların dizilişini buraya giriniz..."
             />
           </div>
 
