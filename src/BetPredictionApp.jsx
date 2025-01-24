@@ -240,7 +240,11 @@ const BetPredictionApp = () => {
       const prompt = `Bu maçın ilk yarısı ${formData.firstHalfScore} skoruyla tamamlanmıştır. Verilen istatistikler ilk yarıya aittir. İkinci yarı için aşağıdaki bahis türlerini analiz et ve en mantıklı tahminleri yap:
 
 1. Maç Sonucu (1-0-2)
+<<<<<<< HEAD
 2. İkinci Yarı Gol Sayısı Alt/Üst bahisleri (0.5, 1.5, 2.5)
+=======
+2. İkinci Yarı Gol Sayısı Alt/Üst bahisleri (0.5, 1.5, 2.5, 3.5)
+>>>>>>> main
 3. Toplam Gol Sayısı (Mevcut ${formData.firstHalfScore} skoru üzerine)
 4. İkinci Yarıda Karşılıklı Gol (Var/Yok)
 5. İkinci Yarı Korner Alt/Üst
