@@ -189,31 +189,14 @@ const BetPredictionApp = () => {
     awayBlockedShots: "",
     homeShotsInsideBox: "",
     awayShotsInsideBox: "",
+    homeSquad: "", // Yeni eklenen alan
+    awaySquad: "", // Yeni eklenen alan
   });
 
   const [prediction, setPrediction] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [predictionHistory, setPredictionHistory] = useState([]);
-
-  // İlk 11 oyuncuları için bir dizi tanımlıyoruz
-  let ilk11 = [];
-
-  // Yedek oyuncular için bir dizi tanımlıyoruz
-  let yedekler = [];
-
-  // Oyuncu ekleme fonksiyonu
-  function oyuncuEkle(isim, pozisyon, yedekMi) {
-    if (yedekMi) {
-      yedekler.push({ isim, pozisyon });
-    } else {
-      if (ilk11.length < 11) {
-        ilk11.push({ isim, pozisyon });
-      } else {
-        console.log("İlk 11 zaten dolu!");
-      }
-    }
-  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -252,6 +235,12 @@ const BetPredictionApp = () => {
         Kırmızı Kartlar (Ev/Dep): ${formData.homeRed}-${formData.awayRed}
         Fauller (Ev/Dep): ${formData.homeFouls}-${formData.awayFouls}
         
+        Ev Sahibi Takım Kadrosu:
+        ${formData.homeSquad}
+  
+        Deplasman Takım Kadrosu:
+        ${formData.awaySquad}
+
         Maç Anlatımı:
         ${formData.liveCommentary}
       `;
@@ -547,6 +536,35 @@ ${matchDescription}`;
               rows={5}
               className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Maç anlatımını buraya giriniz..."
+            />
+          </div>
+
+          {/* Yeni eklenen kadro alanları */}
+          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Ev Sahibi Takım Kadrosu
+            </label>
+            <textarea
+              name="homeSquad"
+              value={formData.homeSquad}
+              onChange={handleInputChange}
+              rows={5}
+              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Ev sahibi takım kadrosunu buraya giriniz..."
+            />
+          </div>
+
+          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Deplasman Takım Kadrosu
+            </label>
+            <textarea
+              name="awaySquad"
+              value={formData.awaySquad}
+              onChange={handleInputChange}
+              rows={5}
+              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Deplasman takım kadrosunu buraya giriniz..."
             />
           </div>
 
