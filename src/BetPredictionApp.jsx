@@ -189,8 +189,13 @@ const BetPredictionApp = () => {
     awayBlockedShots: "",
     homeShotsInsideBox: "",
     awayShotsInsideBox: "",
-    homeSquad: "", // Yeni eklenen alan
-    awaySquad: "", // Yeni eklenen alan
+    homeSquad: "",
+    awaySquad: "",
+    recentForm: "",
+    weather: "",
+    referee: "",
+    formations: "",
+    leagueTable: "",
   });
 
   const [prediction, setPrediction] = useState("");
@@ -539,7 +544,76 @@ ${matchDescription}`;
             />
           </div>
 
-          {/* Yeni eklenen kadro alanları */}
+          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Takımların Son 5 Maçının Sonucu
+            </label>
+            <textarea
+              name="recentForm"
+              value={formData.recentForm}
+              onChange={handleInputChange}
+              rows={3}
+              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Son 5 maçın sonuçlarını buraya giriniz..."
+            />
+          </div>
+
+          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Hava Durumu
+            </label>
+            <input
+              type="text"
+              name="weather"
+              value={formData.weather}
+              onChange={handleInputChange}
+              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Hava durumunu buraya giriniz..."
+            />
+          </div>
+
+          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Hakem
+            </label>
+            <input
+              type="text"
+              name="referee"
+              value={formData.referee}
+              onChange={handleInputChange}
+              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Hakemi buraya giriniz..."
+            />
+          </div>
+
+          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Takımların Dizilişi
+            </label>
+            <textarea
+              name="formations"
+              value={formData.formations}
+              onChange={handleInputChange}
+              rows={3}
+              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Takımların dizilişini buraya giriniz..."
+            />
+          </div>
+
+          <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+              Ligin Puan Tablosu
+            </label>
+            <textarea
+              name="leagueTable"
+              value={formData.leagueTable}
+              onChange={handleInputChange}
+              rows={3}
+              className="w-full bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 rounded-lg px-4 py-2 text-gray-800 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Ligin puan tablosunu buraya giriniz..."
+            />
+          </div>
+
           <div className="bg-white/90 dark:bg-gray-700/90 p-6 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
               Ev Sahibi Takım Kadrosu
