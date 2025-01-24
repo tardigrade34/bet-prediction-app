@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tardigrade34/bet-prediction-app/static/css/main.2450f2b1.css",
-    "main.js": "/tardigrade34/bet-prediction-app/static/js/main.46cd8a45.js",
+    "main.js": "/tardigrade34/bet-prediction-app/static/js/main.94e1133b.js",
     "static/js/453.ef0d242c.chunk.js": "/tardigrade34/bet-prediction-app/static/js/453.ef0d242c.chunk.js",
     "index.html": "/tardigrade34/bet-prediction-app/index.html",
     "main.2450f2b1.css.map": "/tardigrade34/bet-prediction-app/static/css/main.2450f2b1.css.map",
-    "main.46cd8a45.js.map": "/tardigrade34/bet-prediction-app/static/js/main.46cd8a45.js.map",
+    "main.94e1133b.js.map": "/tardigrade34/bet-prediction-app/static/js/main.94e1133b.js.map",
     "453.ef0d242c.chunk.js.map": "/tardigrade34/bet-prediction-app/static/js/453.ef0d242c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2450f2b1.css",
-    "static/js/main.46cd8a45.js"
+    "static/js/main.94e1133b.js"
   ]
 }
