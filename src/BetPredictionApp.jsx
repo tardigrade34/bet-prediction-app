@@ -196,6 +196,25 @@ const BetPredictionApp = () => {
   const [error, setError] = useState("");
   const [predictionHistory, setPredictionHistory] = useState([]);
 
+  // İlk 11 oyuncuları için bir dizi tanımlıyoruz
+  let ilk11 = [];
+
+  // Yedek oyuncular için bir dizi tanımlıyoruz
+  let yedekler = [];
+
+  // Oyuncu ekleme fonksiyonu
+  function oyuncuEkle(isim, pozisyon, yedekMi) {
+    if (yedekMi) {
+      yedekler.push({ isim, pozisyon });
+    } else {
+      if (ilk11.length < 11) {
+        ilk11.push({ isim, pozisyon });
+      } else {
+        console.log("İlk 11 zaten dolu!");
+      }
+    }
+  }
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -240,11 +259,7 @@ const BetPredictionApp = () => {
       const prompt = `Bu maçın ilk yarısı ${formData.firstHalfScore} skoruyla tamamlanmıştır. Verilen istatistikler ilk yarıya aittir. İkinci yarı için aşağıdaki bahis türlerini analiz et ve en mantıklı tahminleri yap:
 
 1. Maç Sonucu (1-0-2)
-<<<<<<< HEAD
 2. İkinci Yarı Gol Sayısı Alt/Üst bahisleri (0.5, 1.5, 2.5)
-=======
-2. İkinci Yarı Gol Sayısı Alt/Üst bahisleri (0.5, 1.5, 2.5, 3.5)
->>>>>>> main
 3. Toplam Gol Sayısı (Mevcut ${formData.firstHalfScore} skoru üzerine)
 4. İkinci Yarıda Karşılıklı Gol (Var/Yok)
 5. İkinci Yarı Korner Alt/Üst
