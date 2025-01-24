@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bet-prediction-app/static/css/main.2450f2b1.css",
-    "main.js": "/bet-prediction-app/static/js/main.1d48755a.js",
+    "main.js": "/bet-prediction-app/static/js/main.0579a01b.js",
     "static/js/453.ef0d242c.chunk.js": "/bet-prediction-app/static/js/453.ef0d242c.chunk.js",
     "index.html": "/bet-prediction-app/index.html",
     "main.2450f2b1.css.map": "/bet-prediction-app/static/css/main.2450f2b1.css.map",
-    "main.1d48755a.js.map": "/bet-prediction-app/static/js/main.1d48755a.js.map",
+    "main.0579a01b.js.map": "/bet-prediction-app/static/js/main.0579a01b.js.map",
     "453.ef0d242c.chunk.js.map": "/bet-prediction-app/static/js/453.ef0d242c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2450f2b1.css",
-    "static/js/main.1d48755a.js"
+    "static/js/main.0579a01b.js"
   ]
 }
