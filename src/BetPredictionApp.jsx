@@ -391,7 +391,7 @@ ${matchDescription}`;
               onChange={handleInputChange}
             />
             <FormGroup
-              label="Takimlarin Dizilişi"
+              label="Takımların Dizilişi"
               name="formations"
               value={formData.formations}
               onChange={handleInputChange}
