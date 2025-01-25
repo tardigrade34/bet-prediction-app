@@ -304,8 +304,8 @@ ${matchDescription}`;
       }
     } catch (err) {
       console.error("Hata detayı:", err);
-
       if (err.response) {
+        console.error("API yanıtı:", err.response.data);
         setError(
           `Sunucu hatası: ${err.response.status} - ${
             err.response.data?.error?.message || "Bilinmeyen hata"
